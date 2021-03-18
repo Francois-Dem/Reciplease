@@ -32,20 +32,13 @@ struct Recipe: Codable {
     let url: String
     let shareAs: String
     let yield: Int
-    let dietLabels, healthLabels: [String]
-    let cautions: [Caution]
-    let ingredientLines: [String]
+    let dietLabels, healthLabels, cautions, ingredientLines: [String]
     let ingredients: [Ingredient]
     let calories, totalWeight: Double
     let totalTime: Int
     let cuisineType, mealType, dishType: [String]?
     let totalNutrients, totalDaily: [String: Total]
     let digest: [Digest]
-}
-
-enum Caution: String, Codable {
-    case fodmap = "FODMAP"
-    case sulfites = "Sulfites"
 }
 
 // MARK: - Digest
@@ -83,7 +76,8 @@ enum Unit: String, Codable {
 struct Ingredient: Codable {
     let text: String
     let weight: Double
-    let foodCategory, foodID: String
+    let foodCategory: String?
+    let foodID: String
     let image: String?
 
     enum CodingKeys: String, CodingKey {
