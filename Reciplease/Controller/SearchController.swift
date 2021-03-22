@@ -17,7 +17,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     let recipleaseService = RecipleaseService()
     let cellId: String = "Cell"
     
-    var datasource = [String]()
+    var ingredients = [String]()
+    var results: Reciplease?
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -25,38 +26,60 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBAction func addIngredient(_ sender: Any) {
         guard let textField = ingredientsTextField.text else { return }
-        datasource.append(textField)
+        ingredients.append(textField)
         ingredientsTextField.text = ""
         listTableView.reloadData()
     }
     
     @IBAction func clearIngredients(_ sender: Any) {
-        datasource.removeAll()
+        ingredients.removeAll()
         listTableView.reloadData()
     }
     
     @IBAction func searchRecipe(_ sender: Any) {
-            performSegue(withIdentifier: "showRecipes", sender: nil)
+        if (ingredients.count == 0) {
+            return
+        }
+        
+        recipleaseService.getData(ingredients: ingredients) { result in
+            switch result {
+                case .success(let recipePlease):
+                    if (recipePlease.hits.count > 0) {
+                        self.results = recipePlease
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "showRecipes", sender: nil)
+                        }
+                    } else {
+                        let alert = UIAlertController(title: "Information", message: "Pas de recettes trouvées", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert.addAction(action)
+                        DispatchQueue.main.async {
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
     }
     
-
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.count
+        return ingredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        cell.textLabel?.text = "- \(datasource[indexPath.row])"
+        cell.textLabel?.text = "- \(ingredients[indexPath.row])"
         
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showRecipes") {
-            let dest = segue.destination as! RecipesController            
-            dest.ingredients = datasource
+            let dest = segue.destination as! RecipesController
+            guard let hits = results?.hits else { return }
+            dest.recipes = hits
         }
     }
 }

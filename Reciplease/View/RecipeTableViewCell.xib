@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,15 +16,50 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="331" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8rz-t1-NnI">
+                        <rect key="frame" x="0.0" y="0.0" width="331" height="81"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZT5-PP-Ej0">
+                        <rect key="frame" x="5" y="43" width="320" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="dZX-LA-Ar5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5U-ht-WId">
+                        <rect key="frame" x="5" y="62" width="320" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Myb-fK-iH0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="ZT5-PP-Ej0" firstAttribute="leading" secondItem="Q5U-ht-WId" secondAttribute="leading" id="86w-0k-HHO"/>
+                    <constraint firstItem="ZT5-PP-Ej0" firstAttribute="trailing" secondItem="Q5U-ht-WId" secondAttribute="trailing" id="B3T-wf-6uW"/>
+                    <constraint firstAttribute="bottom" secondItem="Q5U-ht-WId" secondAttribute="bottom" constant="4" id="PWM-pn-P7e"/>
+                    <constraint firstItem="Q5U-ht-WId" firstAttribute="top" secondItem="ZT5-PP-Ej0" secondAttribute="bottom" constant="-2" id="QWd-1y-fwH"/>
+                    <constraint firstItem="8rz-t1-NnI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rl9-O3-V0M"/>
+                    <constraint firstItem="Q5U-ht-WId" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="bvK-bW-A1d"/>
+                    <constraint firstAttribute="trailing" secondItem="8rz-t1-NnI" secondAttribute="trailing" id="f18-QP-kBq"/>
+                    <constraint firstAttribute="bottom" secondItem="8rz-t1-NnI" secondAttribute="bottom" id="fwa-Uj-zml"/>
+                    <constraint firstAttribute="trailing" secondItem="Q5U-ht-WId" secondAttribute="trailing" constant="6" id="go1-mg-v2U"/>
+                    <constraint firstItem="8rz-t1-NnI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xnC-fU-bQM"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellImage" destination="8rz-t1-NnI" id="6dY-SC-oi1"/>
+                <outlet property="cellIngredients" destination="Q5U-ht-WId" id="JNl-5n-Ggk"/>
+                <outlet property="cellTitle" destination="ZT5-PP-Ej0" id="qCq-ql-Lox"/>
+            </connections>
             <point key="canvasLocation" x="148.55072463768118" y="101.45089285714285"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

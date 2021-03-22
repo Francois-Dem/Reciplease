@@ -21,6 +21,8 @@
 		0F4E216225E3ECE900429BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E216025E3ECE900429BE5 /* LaunchScreen.storyboard */; };
 		0F4E216D25E3ECE900429BE5 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */; };
 		0F54D94B25E54430004D2253 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54D94A25E54430004D2253 /* RecipeSession.swift */; };
+		0F6F75682607EB5500C215F5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F75672607EB5500C215F5 /* Extensions.swift */; };
+		0F6F756E2607EFFF00C215F5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F756D2607EFFF00C215F5 /* DetailController.swift */; };
 		6F8EE6A5AE838DA5A9F73875 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0764B5CD32E6540B65A2B00 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		0F4E216E25E3ECE900429BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F54D94A25E54430004D2253 /* RecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSession.swift; sourceTree = "<group>"; };
+		0F6F75672607EB5500C215F5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0F6F756D2607EFFF00C215F5 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4483F782A0F68BB51BD47A84 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		5818BA7E55D14B8002A19B52 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		F0764B5CD32E6540B65A2B00 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +104,7 @@
 		0F4E215125E3ECE800429BE5 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				0F6F75672607EB5500C215F5 /* Extensions.swift */,
 				0F4E215225E3ECE800429BE5 /* AppDelegate.swift */,
 				0F4E215425E3ECE800429BE5 /* SceneDelegate.swift */,
 				0F4E216325E3ECE900429BE5 /* Info.plist */,
@@ -135,6 +140,7 @@
 			children = (
 				0F4E215625E3ECE800429BE5 /* SearchController.swift */,
 				0F4A39BD25F6C661007A74B9 /* RecipesController.swift */,
+				0F6F756D2607EFFF00C215F5 /* DetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,8 +148,8 @@
 		0F54D94825E543E6004D2253 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0F4BCD2A25EF932E00D16F89 /* Main.storyboard */,
 				0F4AE07F25FF4FDC0002B86F /* RecipeTableViewCell.swift */,
+				0F4BCD2A25EF932E00D16F89 /* Main.storyboard */,
 				0F4AE08025FF4FDC0002B86F /* RecipeTableViewCell.xib */,
 			);
 			path = View;
@@ -223,7 +229,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "françois demichelis";
 				TargetAttributes = {
 					0F4E214E25E3ECE800429BE5 = {
@@ -324,9 +330,11 @@
 			files = (
 				0F4E215D25E3ECE800429BE5 /* Reciplease.xcdatamodeld in Sources */,
 				0F4A39BE25F6C661007A74B9 /* RecipesController.swift in Sources */,
+				0F6F756E2607EFFF00C215F5 /* DetailController.swift in Sources */,
 				0F4E215725E3ECE800429BE5 /* SearchController.swift in Sources */,
 				0F4AE08125FF4FDC0002B86F /* RecipeTableViewCell.swift in Sources */,
 				0F54D94B25E54430004D2253 /* RecipeSession.swift in Sources */,
+				0F6F75682607EB5500C215F5 /* Extensions.swift in Sources */,
 				0F4C889825ED88890054B4FD /* Reciplease.swift in Sources */,
 				0F4E215325E3ECE800429BE5 /* AppDelegate.swift in Sources */,
 				0F4A557F25E8F85F00818CE0 /* RecipleaseService.swift in Sources */,
@@ -398,6 +406,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -458,6 +467,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
