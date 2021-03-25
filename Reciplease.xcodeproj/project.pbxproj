@@ -21,7 +21,7 @@
 		0F4E216225E3ECE900429BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E216025E3ECE900429BE5 /* LaunchScreen.storyboard */; };
 		0F4E216D25E3ECE900429BE5 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */; };
 		0F54D94B25E54430004D2253 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54D94A25E54430004D2253 /* RecipeSession.swift */; };
-		0F6F75682607EB5500C215F5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F75672607EB5500C215F5 /* Extensions.swift */; };
+		0F6F75682607EB5500C215F5 /* ImageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F75672607EB5500C215F5 /* ImageLoad.swift */; };
 		0F6F756E2607EFFF00C215F5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F756D2607EFFF00C215F5 /* DetailController.swift */; };
 		6F8EE6A5AE838DA5A9F73875 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0764B5CD32E6540B65A2B00 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +55,7 @@
 		0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		0F4E216E25E3ECE900429BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F54D94A25E54430004D2253 /* RecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSession.swift; sourceTree = "<group>"; };
-		0F6F75672607EB5500C215F5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0F6F75672607EB5500C215F5 /* ImageLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoad.swift; sourceTree = "<group>"; };
 		0F6F756D2607EFFF00C215F5 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4483F782A0F68BB51BD47A84 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		5818BA7E55D14B8002A19B52 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		0F4E214625E3ECE800429BE5 = {
 			isa = PBXGroup;
 			children = (
+				0F4E7E0F260B25FA0083B61A /* Extentions */,
 				0F4E215125E3ECE800429BE5 /* Reciplease */,
 				0F4E216B25E3ECE900429BE5 /* RecipleaseTests */,
 				0F4E215025E3ECE800429BE5 /* Products */,
@@ -104,7 +105,6 @@
 		0F4E215125E3ECE800429BE5 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
-				0F6F75672607EB5500C215F5 /* Extensions.swift */,
 				0F4E215225E3ECE800429BE5 /* AppDelegate.swift */,
 				0F4E215425E3ECE800429BE5 /* SceneDelegate.swift */,
 				0F4E216325E3ECE900429BE5 /* Info.plist */,
@@ -124,6 +124,14 @@
 				0F4E216E25E3ECE900429BE5 /* Info.plist */,
 			);
 			path = RecipleaseTests;
+			sourceTree = "<group>";
+		};
+		0F4E7E0F260B25FA0083B61A /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F75672607EB5500C215F5 /* ImageLoad.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		0F54D94625E543D2004D2253 /* SupportingFiles */ = {
@@ -334,7 +342,7 @@
 				0F4E215725E3ECE800429BE5 /* SearchController.swift in Sources */,
 				0F4AE08125FF4FDC0002B86F /* RecipeTableViewCell.swift in Sources */,
 				0F54D94B25E54430004D2253 /* RecipeSession.swift in Sources */,
-				0F6F75682607EB5500C215F5 /* Extensions.swift in Sources */,
+				0F6F75682607EB5500C215F5 /* ImageLoad.swift in Sources */,
 				0F4C889825ED88890054B4FD /* Reciplease.swift in Sources */,
 				0F4E215325E3ECE800429BE5 /* AppDelegate.swift in Sources */,
 				0F4A557F25E8F85F00818CE0 /* RecipleaseService.swift in Sources */,

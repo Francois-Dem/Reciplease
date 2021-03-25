@@ -9,8 +9,8 @@
 import UIKit
 
 class DetailController: UIViewController {
-    @IBOutlet weak var detailImage: UIImageView!
-    @IBOutlet weak var detailRecipe: UILabel!
+    @IBOutlet weak var imageRecipe: UIImageView!
+    @IBOutlet weak var recipeIngredients: UILabel!
     
     var hit: Hit?
     
@@ -24,10 +24,9 @@ class DetailController: UIViewController {
         
         guard let hit = hit else { return }
         guard let url = URL(string: hit.recipe.image) else { return }
-        detailImage.load(url: url)
+        imageRecipe.load(url: url)
         
-        print(hit.recipe.label ?? "")
-        detailRecipe.text = hit.recipe.label
+        recipeIngredients.text = hit.recipe.label
     }
         
 

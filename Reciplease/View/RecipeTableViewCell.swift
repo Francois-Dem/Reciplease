@@ -10,12 +10,15 @@ import UIKit
 
 class RecipeTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellTitle: UILabel!
-    @IBOutlet weak var cellIngredients: UILabel!
-    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var verticalStackView: UIStackView!
+    
     
     var hit: Hit? {
         didSet {
+            verticalStackView.backgroundColor = .white
             guard let hit = hit else { return }
             var ingredients = [String]()
             
@@ -23,11 +26,11 @@ class RecipeTableViewCell: UITableViewCell {
                 ingredients.append(ingredient.text)
             }
             
-            cellTitle.text = hit.recipe.label
-            cellIngredients.text = ingredients.joined(separator: ", ")
+            titleLabel.text = hit.recipe.label
+            ingredientsLabel.text = ingredients.joined(separator: ", ")
             
             guard let url = URL(string: hit.recipe.image) else { return }
-            cellImage.load(url: url)
+            backgroundImage.load(url: url)
         }
     }
     
