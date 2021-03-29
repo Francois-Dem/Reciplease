@@ -14,6 +14,8 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var verticalStackView: UIStackView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var peopleLabel: UILabel!
     
     
     var hit: Hit? {
@@ -28,6 +30,10 @@ class RecipeTableViewCell: UITableViewCell {
             
             titleLabel.text = hit.recipe.label
             ingredientsLabel.text = ingredients.joined(separator: ", ")
+            let totalTime: Int = hit.recipe.totalTime
+            timeLabel.text = " \(totalTime) min"
+            let people: Int = hit.recipe.yield
+            peopleLabel.text = " \(people) people"
             
             guard let url = URL(string: hit.recipe.image) else { return }
             backgroundImage.load(url: url)

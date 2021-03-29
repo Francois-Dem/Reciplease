@@ -8,9 +8,10 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var imageRecipe: UIImageView!
-    @IBOutlet weak var recipeIngredients: UILabel!
+    
+    let cellId: String = "DetailCell"
     
     var hit: Hit?
     
@@ -21,14 +22,25 @@ class DetailController: UIViewController {
     }
     
     private func setupUI() {
-        
         guard let hit = hit else { return }
+        
+        //image
         guard let url = URL(string: hit.recipe.image) else { return }
         imageRecipe.load(url: url)
-        
-        recipeIngredients.text = hit.recipe.label
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hit?.recipe.ingredients.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
+        let ingredient = hit?.recipe.ingredients[indexPath.row].text ?? ""
+        cell.textLabel?.text = "- \(ingredient)"
+        
+        return cell
+    }
 
     
 
