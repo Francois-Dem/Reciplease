@@ -193,7 +193,7 @@
             </objects>
             <point key="canvasLocation" x="2515.9420289855075" y="-412.5"/>
         </scene>
-        <!--Detail Controller-->
+        <!--Reciplease-->
         <scene sceneID="i1c-DT-CJG">
             <objects>
                 <viewController id="bGK-Q6-Q7V" customClass="DetailController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
@@ -265,9 +265,16 @@
                             <constraint firstItem="snv-YW-Fka" firstAttribute="top" secondItem="Z35-hN-wRt" secondAttribute="top" id="vR5-EL-MVh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KPC-Gx-bHT"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="KPC-Gx-bHT">
+                        <barButtonItem key="rightBarButtonItem" image="Icon-App-29x29-3" id="VEr-N7-m5n">
+                            <connections>
+                                <action selector="toggleFavButtonAction:" destination="bGK-Q6-Q7V" id="iQC-xs-k4f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageRecipe" destination="Fy3-Ea-wFh" id="1J4-hV-Zgs"/>
+                        <outlet property="toggleFavButton" destination="VEr-N7-m5n" id="aou-po-uG1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4m-vb-lRz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -293,6 +300,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon-App-29x29-3" width="29" height="29"/>
         <image name="backgroundApp" width="834" height="1194"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
