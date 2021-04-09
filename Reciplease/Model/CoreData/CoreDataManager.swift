@@ -19,8 +19,8 @@ final class CoreDataManager {
     var favRecipes: [Recipes] {
         let request: NSFetchRequest<Recipes> = Recipes.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "label", ascending: true)]
-        guard let recipes = try? managedObjectContext.fetch(request) else { return [] }
-        return recipes
+        guard let favorites = try? managedObjectContext.fetch(request) else { return [] }
+        return favorites
     }
 
     // MARK: - Initializer
@@ -30,7 +30,7 @@ final class CoreDataManager {
         self.managedObjectContext = coreDataStack.mainContext
     }
 
-    // MARK: - Manage Recipe Entity
+    // MARK: - Manage Favorite Entity
 
     func createRecipe(image: Data?, ingredients: [String], label: String, totalTime: String, url: String, yield: String) {
         let recipe = Recipes(context: managedObjectContext)
@@ -44,7 +44,7 @@ final class CoreDataManager {
     }
     
     
-    func deleteAllRecipes() {
+    func deleteAllFavorite() {
         favRecipes.forEach { managedObjectContext.delete($0) }
         coreDataStack.saveContext()
     }

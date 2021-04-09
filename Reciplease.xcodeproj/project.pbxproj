@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F494C21261318FE0083E9BE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F494C20261318FE0083E9BE /* CoreDataManager.swift */; };
 		0F494C27261319430083E9BE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F494C26261319430083E9BE /* CoreDataStack.swift */; };
+		0F49FD2626174630003442DC /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F49FD2526174630003442DC /* FavoriteController.swift */; };
 		0F4A39BE25F6C661007A74B9 /* RecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A39BD25F6C661007A74B9 /* RecipesController.swift */; };
 		0F4A557F25E8F85F00818CE0 /* RecipleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A557E25E8F85F00818CE0 /* RecipleaseService.swift */; };
 		0F4A67B526145B5D00A27562 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A67B426145B5D00A27562 /* UIImage.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		0F494C20261318FE0083E9BE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0F494C26261319430083E9BE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0F49FD2526174630003442DC /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		0F4A39BD25F6C661007A74B9 /* RecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesController.swift; sourceTree = "<group>"; };
 		0F4A557E25E8F85F00818CE0 /* RecipleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseService.swift; sourceTree = "<group>"; };
 		0F4A67B426145B5D00A27562 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -87,14 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F494C1E261318A40083E9BE /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				0F494C1F261318BA0083E9BE /* CoreData */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		0F494C1F261318BA0083E9BE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				0F4E7E0F260B25FA0083B61A /* Extentions */,
-				0F494C1E261318A40083E9BE /* Modules */,
 				0F4E215125E3ECE800429BE5 /* Reciplease */,
 				0F4E216B25E3ECE900429BE5 /* RecipleaseTests */,
 				0F4E215025E3ECE800429BE5 /* Products */,
@@ -174,6 +167,7 @@
 				0F4E215625E3ECE800429BE5 /* SearchController.swift */,
 				0F4A39BD25F6C661007A74B9 /* RecipesController.swift */,
 				0F6F756D2607EFFF00C215F5 /* DetailController.swift */,
+				0F49FD2526174630003442DC /* FavoriteController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +185,7 @@
 		0F54D94925E543EE004D2253 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F494C1F261318BA0083E9BE /* CoreData */,
 				0F54D94A25E54430004D2253 /* RecipeSession.swift */,
 				0F4A557E25E8F85F00818CE0 /* RecipleaseService.swift */,
 				0F4C889725ED88890054B4FD /* Reciplease.swift */,
@@ -371,6 +366,7 @@
 				0F6F75682607EB5500C215F5 /* ImageLoad.swift in Sources */,
 				0F494C27261319430083E9BE /* CoreDataStack.swift in Sources */,
 				0F494C21261318FE0083E9BE /* CoreDataManager.swift in Sources */,
+				0F49FD2626174630003442DC /* FavoriteController.swift in Sources */,
 				0F4C889825ED88890054B4FD /* Reciplease.swift in Sources */,
 				0F4E215325E3ECE800429BE5 /* AppDelegate.swift in Sources */,
 				0F4A557F25E8F85F00818CE0 /* RecipleaseService.swift in Sources */,

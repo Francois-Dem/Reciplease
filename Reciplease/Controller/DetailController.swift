@@ -15,6 +15,9 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
     let cellId: String = "DetailCell"
     
     var hit: Hit?
+    var recipes: Recipes?
+    var recipeDetail: RecipeDetail?
+    
     private var coreDataManager: CoreDataManager?
     
     override func viewDidLoad() {
@@ -22,49 +25,65 @@ class DetailController: UIViewController, UITableViewDelegate, UITableViewDataSo
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let coredataStack = appdelegate.coreDataStack
         coreDataManager = CoreDataManager(coreDataStack: coredataStack)
-
+        
         setupUI()
     }
-    
+
     private func setupUI() {
-        guard let hit = hit else { return }
-        
         //image
-        guard let url = URL(string: hit.recipe.image) else { return }
-        imageRecipe.load(url: url)
+        guard let url = recipeDetail?.image else { return }
+        let image = UIImage(data: url)
+        imageRecipe.image = image
+        imageRecipe.contentMode = .scaleAspectFill
+
+        let title: UILabel = {
+        let label = UILabel()
+            label.text = recipeDetail?.title
+            label.textAlignment = NSTextAlignment.center
+            label.numberOfLines = 1
+            return label
+        }()
+        func SetupView() {
+            self.imageRecipe.addSubview(title)
+            title.bottomAnchor.constraint(equalTo: imageRecipe.bottomAnchor).isActive = true
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hit?.recipe.ingredients.count ?? 0
+        return recipeDetail?.ingredients.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        let ingredient = hit?.recipe.ingredients[indexPath.row].text ?? ""
+        let ingredient = recipeDetail?.ingredients[indexPath.row] ?? ""
         cell.textLabel?.text = "- \(ingredient)"
         
         return cell
     }
 
     @IBAction func toggleFavButtonAction(_ sender: UIBarButtonItem) {
-        let image = hit?.recipe.image.toData
+        let image = recipeDetail?.image
         
-        let ingredients = hit?.recipe.ingredients.map { $0.text } ?? []
+        let ingredients = recipeDetail?.ingredients.map { $0 } ?? []
         
-        let label = hit?.recipe.label ?? ""
+        let label = recipeDetail?.title ?? ""
         
-        let totalTime = hit?.recipe.totalTime ?? 0
-        let totalTimeStr = String(totalTime)
+        let totalTime = recipeDetail?.totalTime ?? ""
         
-        let url = hit?.recipe.url ?? ""
+        let url = recipeDetail?.url ?? ""
         
-        let yield = hit?.recipe.yield ?? 0
-        let yieldStr = String(yield)
+        let yield = recipeDetail?.yield ?? ""
         
-        coreDataManager?.createRecipe(image: image, ingredients: ingredients, label: label, totalTime: totalTimeStr, url: url, yield: yieldStr)
+        coreDataManager?.createRecipe(image: image, ingredients: ingredients, label: label, totalTime: totalTime, url: url, yield: yield)
+        
     }
-
+    @IBAction func getDirectionsTapped(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

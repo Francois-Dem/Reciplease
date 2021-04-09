@@ -13,6 +13,7 @@ class RecipesController: UITableViewController {
     let cellId: String = "RecipeCell"
         
     var recipes = [Hit]()
+    var hit: Hit?
     var selectedRecipe: Hit?
     
     override func viewDidLoad() {
@@ -44,15 +45,27 @@ class RecipesController: UITableViewController {
         selectedRecipe = recipes[indexPath.row]
         performSegue(withIdentifier: "showDetail", sender: self)
     }
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showDetail") {            
+        
+        if (segue.identifier == "showDetail") {
             let dest = segue.destination as! DetailController
-            dest.hit = selectedRecipe
-        }
+            
+            let totalTime = selectedRecipe?.recipe.totalTime ?? 0
+            let totalTimeStr = String(totalTime)
+            let url = selectedRecipe?.recipe.url ?? ""
+            let yield = selectedRecipe?.recipe.yield ?? 0
+            let yieldStr = String(yield)
+            
+            let recipeDetail = RecipeDetail(title: selectedRecipe?.recipe.label ?? "", ingredients: selectedRecipe?.recipe.ingredients.map { $0.text } ?? [], image: selectedRecipe?.recipe.image.toData, totalTime: totalTimeStr, yield: yieldStr, url: url)
+            
+            
+            dest.recipeDetail = recipeDetail
+
     }
 
+}
 }

@@ -40,4 +40,20 @@ class RecipeTableViewCell: UITableViewCell {
         }
     }
     
+    var recipes: Recipes? {
+        didSet {
+            verticalStackView.backgroundColor = .white
+            guard let recipes = recipes else { return }
+
+            titleLabel.text = recipes.label
+            ingredientsLabel.text = (recipes.ingredients ?? []).joined(separator: ", ")
+            timeLabel.text = " \(recipes.totalTime ?? "") min"
+            peopleLabel.text = " \(recipes.yield ?? "") people"
+            
+            guard let imageData = recipes.image else { return }
+            guard let image = UIImage(data: imageData) else { return }
+            backgroundImage.image = image
+        }
+    }
+    
 }
