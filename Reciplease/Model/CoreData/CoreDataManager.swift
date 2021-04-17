@@ -43,6 +43,34 @@ final class CoreDataManager {
         coreDataStack.saveContext()
     }
     
+    func isInFavorite(label: String) -> Bool {
+        let request: NSFetchRequest<Recipes> = Recipes.fetchRequest()
+        request.predicate = NSPredicate(format: "label == %@", label)
+        guard let favorites = try? managedObjectContext.fetch(request) else { return false }
+        
+        if !favorites.isEmpty {
+            return true
+        }
+            return false
+    }
+    
+    func deleteFavorite(label: String) -> Bool {
+        let request: NSFetchRequest<Recipes> = Recipes.fetchRequest()
+        request.predicate = NSPredicate(format: "label == %@", label)
+        guard let favorites = try? managedObjectContext.fetch(request) else { return false }
+        
+        let isFavorite = favorites.count == 1
+        if (!isFavorite) {
+            print("An error occured while searching for the recipe")
+            return false
+        }
+        
+        guard let favToDelete = favorites.first else { return false }
+        managedObjectContext.delete(favToDelete)
+        coreDataStack.saveContext()
+        
+        return true
+    }
     
     func deleteAllFavorite() {
         favRecipes.forEach { managedObjectContext.delete($0) }

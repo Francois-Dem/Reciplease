@@ -15,12 +15,13 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var verticalStackView: UIStackView!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var timeImage: UIImageView!
     @IBOutlet weak var peopleLabel: UILabel!
     
     
     var hit: Hit? {
-        didSet {
-            verticalStackView.backgroundColor = .white
+        didSet {            
             guard let hit = hit else { return }
             var ingredients = [String]()
             
@@ -32,6 +33,11 @@ class RecipeTableViewCell: UITableViewCell {
             ingredientsLabel.text = ingredients.joined(separator: ", ")
             let totalTime: Int = hit.recipe.totalTime
             timeLabel.text = " \(totalTime) min"
+            
+            let isValidTotalTime = totalTime != 0
+            timeImage.isHidden = !isValidTotalTime
+            timeLabel.isHidden = !isValidTotalTime
+            
             let people: Int = hit.recipe.yield
             peopleLabel.text = " \(people) people"
             
@@ -42,12 +48,17 @@ class RecipeTableViewCell: UITableViewCell {
     
     var recipes: Recipes? {
         didSet {
-            verticalStackView.backgroundColor = .white
             guard let recipes = recipes else { return }
 
             titleLabel.text = recipes.label
             ingredientsLabel.text = (recipes.ingredients ?? []).joined(separator: ", ")
-            timeLabel.text = " \(recipes.totalTime ?? "") min"
+            let totalTime = recipes.totalTime ?? ""
+            timeLabel.text = " \(totalTime) min"
+            
+            let isValidTotalTime = totalTime != "" && totalTime != "0"
+            timeImage.isHidden = !isValidTotalTime
+            timeLabel.isHidden = !isValidTotalTime
+            
             peopleLabel.text = " \(recipes.yield ?? "") people"
             
             guard let imageData = recipes.image else { return }

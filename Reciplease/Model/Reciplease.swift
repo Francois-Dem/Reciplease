@@ -5,6 +5,10 @@
 //  Created by françois demichelis on 01/03/2021.
 //  Copyright © 2021 françois demichelis. All rights reserved.
 //
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
 import Foundation
 
@@ -20,7 +24,6 @@ struct Reciplease: Codable {
 // MARK: - Hit
 struct Hit: Codable {
     let recipe: Recipe
-    let bookmarked, bought: Bool
 }
 
 // MARK: - Recipe
@@ -34,6 +37,7 @@ struct Recipe: Codable {
     let yield: Int
     let ingredients: [Ingredient]
     let totalTime: Int
+
 }
 
 enum Unit: String, Codable {
@@ -47,12 +51,22 @@ enum Unit: String, Codable {
 // MARK: - Ingredient
 struct Ingredient: Codable {
     let text: String
+    let weight: Double
+    let foodCategory, foodID: String
     let image: String?
 
     enum CodingKeys: String, CodingKey {
-        case text
+        case text, weight, foodCategory
+        case foodID = "foodId"
         case image
     }
+}
+
+// MARK: - Total
+struct Total: Codable {
+    let label: String
+    let quantity: Double
+    let unit: Unit
 }
 
 struct RecipeDetail {

@@ -23,7 +23,6 @@
 		0F4E215D25E3ECE800429BE5 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E215B25E3ECE800429BE5 /* Reciplease.xcdatamodeld */; };
 		0F4E215F25E3ECE900429BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E215E25E3ECE900429BE5 /* Assets.xcassets */; };
 		0F4E216225E3ECE900429BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E216025E3ECE900429BE5 /* LaunchScreen.storyboard */; };
-		0F4E216D25E3ECE900429BE5 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */; };
 		0F54D94B25E54430004D2253 /* RecipeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54D94A25E54430004D2253 /* RecipeSession.swift */; };
 		0F6F75682607EB5500C215F5 /* ImageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F75672607EB5500C215F5 /* ImageLoad.swift */; };
 		0F6F756E2607EFFF00C215F5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F756D2607EFFF00C215F5 /* DetailController.swift */; };
@@ -60,7 +59,6 @@
 		0F4E216125E3ECE900429BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F4E216325E3ECE900429BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F4E216825E3ECE900429BE5 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		0F4E216E25E3ECE900429BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F54D94A25E54430004D2253 /* RecipeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSession.swift; sourceTree = "<group>"; };
 		0F6F75672607EB5500C215F5 /* ImageLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoad.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 		0F4E216B25E3ECE900429BE5 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				0F4E216C25E3ECE900429BE5 /* RecipleaseTests.swift */,
 				0F4E216E25E3ECE900429BE5 /* Info.plist */,
 			);
 			path = RecipleaseTests;
@@ -378,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F4E216D25E3ECE900429BE5 /* RecipleaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
